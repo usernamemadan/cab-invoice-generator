@@ -12,8 +12,10 @@ public class CabInvoiceGeneratorTest {
 	@Test
 	public void givenRideDetailsShouldReturnFare() {
 		CabInvoiceGenerator cabInvoiceGenerator = new CabInvoiceGenerator();
-		float fare = cabInvoiceGenerator.calculate(5, 10);
-		Assert.assertEquals(60, fare, 1);
 		
+		cabInvoiceGenerator.addRide(20, 10);
+		cabInvoiceGenerator.addRide(10, 5);
+		float fare = cabInvoiceGenerator.calculateFare();
+		Assert.assertEquals(315, fare, 1);
 	}
 }
